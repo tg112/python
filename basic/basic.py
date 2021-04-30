@@ -64,3 +64,9 @@ if x == 1 or y == 2:
     print("Yes")
 else:
     print("No")
+
+## user input 
+user_input = input("Enter input")
+str_format = f"Hello {user_input}"
+str_format2 = "Hello %s" % user_input
+print(str_format2)

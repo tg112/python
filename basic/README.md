@@ -223,3 +223,139 @@ or
 type("abc") == str
 type([1, 2, 3]) == lst
 ```
+
+Functions can have more than one parameter:
+
+```
+def volume(a, b, c):
+    return a * b * c
+```
+
+Functions can have default parameters (e.g. coefficient):
+
+```
+def converter(feet, coefficient = 3.2808):
+    meters = feet / coefficient
+    return meters
+
+print(converter(10))
+```
+
+Arguments can be passed as non-keyword (positional) arguments (e.g. a) or keyword arguments (e.g. b=2 and c=10):
+
+```
+def volume(a, b, c):
+    return a * b * c
+
+print(volume(1, b=2, c=10))
+```
+
+An \*args parameter allows the function to be called with an arbitrary number of non-keyword arguments:
+
+```
+def find_max(*args):
+    return max(args)
+print(find_max(3, 99, 1001, 2, 8))
+```
+
+An \*\*kwargs parameter allows the function to be called with an arbitrary number of keyword arguments:
+
+```
+def find_winner(**kwargs):
+    return max(kwargs, key = kwargs.get)
+
+print(find_winner(Andy = 17, Marry = 19, Sim = 45, Kae = 34))
+```
+
+## Processing User Input
+
+A Python program can get user input via the `input` function:
+
+The input function halts the execution of the program and gets text input from the user:
+
+```
+name = input("Enter your name: ")
+```
+
+The input function converts any input to a string, but you can convert it back to int or float:
+
+```
+experience_months = input("Enter your experience in months: ")
+experience_years = int(experience_months) / 12
+```
+
+You can format strings with (works both on Python 2 and 3):
+
+```
+# ①
+name = "Sim"
+experience_years = 1.5
+print("Hi %s, you have %s years of experience." % (name, experience_years))
+
+# ②
+name = "Sim"
+experience_years = 1.5
+print("Hi {}, you have {} years of experience".format(name, experience_years))
+```
+
+## Loops
+
+- List
+
+```
+for letter in 'abc':
+    print(letter.upper())
+```
+
+- Dictionary keys:
+
+```
+phone_numbers = {"John Smith":"+37682929928","Marry Simpons":"+423998200919"}
+for value in phone_numbers.keys():
+    print(value)
+```
+
+- Dictionary values:
+
+```
+phone_numbers = {"John Smith":"+37682929928","Marry Simpons":"+423998200919"}
+for value in phone_numbers.values():
+    print(value)
+```
+
+- Dictionary items:
+
+```
+phone_numbers = {"John Smith":"+37682929928","Marry Simpons":"+423998200919"}
+for key, value in phone_numbers.items():
+    print(key, value)
+```
+
+- While loops will run as long as a condition is true:
+
+```
+while datetime.datetime.now() < datetime.datetime(2090, 8, 20, 19, 30, 20):
+    print("It's not yet 19:30:20 of 2090.8.20")
+```
+
+## List Comprehensions
+
+- A list comprehension is an expression that creates a list by iterating over another container.
+
+- A basic list comprehension:
+
+```
+[i*2 for i in [1, 5, 10]]
+```
+
+- List comprehension with if condition:
+
+```
+[i*2 for i in [1, -2, 10] if i>0]
+```
+
+- List comprehension with an if and else condition:
+
+```
+[i*2 if i>0 else 0 for i in [1, -2, 10]]
+```
