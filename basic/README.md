@@ -359,3 +359,67 @@ while datetime.datetime.now() < datetime.datetime(2090, 8, 20, 19, 30, 20):
 ```
 [i*2 if i>0 else 0 for i in [1, -2, 10]]
 ```
+
+## File Processing
+
+Read an existing file with Python:
+
+```
+with open("file.txt") as file:
+    content = file.read()
+```
+
+Create a new file with Python and write some text on it:
+
+```
+with open("file.txt", "w") as file:
+    content = file.write("Sample text")
+```
+
+Append text to an existing file without overwriting it:
+
+```
+with open("file.txt", "a") as file:
+    content = file.write("More sample text")
+```
+
+Both append and read a file with:
+
+```
+with open("file.txt", "a+") as file:
+    content = file.write("Even more sample text")
+    file.seek(0)
+    content = file.read()
+```
+
+## Imported Modules
+
+- `Builtin objects` are all objects that are written inside the Python interpreter in C language.
+
+- `Builtin modules` contain builtins objects.
+
+- Some builtin objects are not immediately available in the global namespace. They are parts of a builtin module. To use those objects the module needs to be imported first.
+
+```
+import time
+time.sleep(5)
+```
+
+- A list of all builtin modules can be printed out with:
+
+```
+import sys
+sys.builtin_module_names
+```
+
+- `Standard libraries` is a jargon that includes both builtin modules written in C and also modules written in Python.
+
+- `Standard libraries` written in Python reside in the Python installation directory as .py files. You can find their directory path with `sys.prefix`.
+
+- `Packages` are a collection of .py modules.
+
+- `Third-party libraries` are packages or modules written by third-party persons (not the Python core development team).
+
+```
+pip3 install <third-party-lib>
+```
